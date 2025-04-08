@@ -1,1 +1,120 @@
 @import 'tailwindcss';
+
+/*colors*/
+@theme {
+	--color-*: initial;
+	--color-slate-100: oklch(96.8% 0.007 247.896);
+	--color-slate-300: oklch(86.9% 0.022 252.894);
+	--color-slate-400: oklch(70.4% 0.04 256.788);
+	--color-slate-500: oklch(55.4% 0.046 257.417);
+	--color-slate-900: oklch(20.8% 0.042 265.755);
+	--color-blue-300: oklch(80.9% 0.105 251.813);
+}
+/* typography */
+@theme {
+	--font-*: initial;
+	--font-poppins: Poppins, sans-serif;
+
+	--text-*: initial;
+
+	--text-sm: 0.875rem;
+	--text-sm--line-height: 1.6;
+
+	--text-base: 1rem;
+	--text-base--line-height: 1.6;
+
+	--text-md: 1.25rem;
+	--text-md--line-height: 1.6;
+
+	--text-lg: 1.5rem;
+	--text-lg--line-height: 1;
+
+	--text-xl: 2rem;
+	--text-xl--line-height: 1;
+
+	--text-2xl: 3rem;
+	--text-2xl--line-height: 1;
+
+	--text-3xl: 5rem;
+	--text-3xl--line-height: 1;
+
+	--text-4xl: 7.5rem;
+	--text-4xl--line-height: 1;
+
+	--font-weight-*: initial;
+	--font-weight-light: 300;
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
+	--font-weight-bold: 700;
+}
+/* references font sizes */
+@theme {
+	--text-heading-sm: var(--text-lg);
+	--text-heading-sm--line-height: var(--text-lg--line-height);
+
+	--text-heading-base: var(--text-xl);
+	--text-heading-base--line-height: var(--text-xl--line-height);
+
+	--text-heading-md: var(--text-2xl);
+	--text-heading-md--line-height: var(--text-2xl--line-height);
+
+	--text-heading-lg: var(--text-3xl);
+	--text-heading-lg--line-height: var(--text-3xl--line-height);
+
+	--text-heading-xl: var(--text-4xl);
+	--text-heading-xl--line-height: var(--text-4xl--line-height);
+}
+
+@layer utilities {
+	.flow > * + * {
+		margin-block-start: 1em;
+	}
+
+	.inline-wrapper {
+		@apply mx-auto max-w-[1200px] p-4 sm:p-6;
+	}
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Light.ttf') format('ttf');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Regular.ttf') format('ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Medium.ttf') format('ttf');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-SemiBold.ttf') format('ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Bold.ttf') format('ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@media (prefers-reduced-motion) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
