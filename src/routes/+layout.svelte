@@ -1,7 +1,11 @@
 <script>
 	import '../app.css';
+	import Header from '$components/Header.svelte';
 
 	let { children } = $props();
 </script>
 
-{@render children()}
+<main class="inline-wrapper">
+	<Header />
+	{@render children()}
+</main>
