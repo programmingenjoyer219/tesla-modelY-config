@@ -9,7 +9,7 @@
 	<input
 		{id}
 		class={[
-			'size-6 appearance-none border-2 border-slate-500 checked:bg-blue-300',
+			'size-6 appearance-none border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300',
 			optionType == 'radio' ? 'rounded-full' : 'rounded-sm'
 		]}
 		type={optionType}

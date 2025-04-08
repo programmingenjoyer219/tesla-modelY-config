@@ -14,7 +14,7 @@
 			oninput={function () {
 				console.log(color);
 			}}
-			class="absolute top-1/2 left-1/2 z-10 size-[90%] -translate-1/2 opacity-0"
+			class="absolute top-1/2 left-1/2 -z-10 size-[90%] -translate-1/2 outline-offset-6 focus:outline-blue-300"
 		/>
 		<img {src} alt="" class="" />
 	</div>
@@ -22,7 +22,7 @@
 
 <label class="block space-y-2">
 	<p class="font-semibold">{label}</p>
-	<div class="grid grid-cols-6 gap-4">
+	<div class="grid grid-cols-4 gap-3">
 		{#each Object.entries(colorImageMap) as [color, src]}
 			{@render colorSelectionBtn(color, src)}
 		{/each}
