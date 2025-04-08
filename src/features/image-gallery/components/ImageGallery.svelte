@@ -3,7 +3,7 @@
 	import InteriorImage from './InteriorImage.svelte';
 </script>
 
-<section class="flow sticky top-4">
+<section class="flow md:sticky md:top-4">
 	<CarImage />
 	<InteriorImage />
 </section>
