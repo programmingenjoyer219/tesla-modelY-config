@@ -3,7 +3,7 @@
 	import ConfigOption from './ConfigOption.svelte';
 </script>
 
-<section class="space-y-6">
+<section class="space-y-8">
 	<h1 class="text-heading-base md:text-heading-md text-center font-bold md:text-start">Model Y</h1>
 	<div class="h-1 w-full rounded bg-slate-300/75"></div>
 	<!-- menu -->
@@ -11,7 +11,7 @@
 		<h2 class="text-heading-sm font-light text-slate-900/50">Customize Your Car</h2>
 		<!-- exterior color selection menu -->
 		<ColorSelectionMenu
-			label="Exterior color"
+			title="Exterior color"
 			colorImageMap={{
 				ultraRed: '/assets/model-y/buttons/ultra-red.avif',
 				pearlWhite: '/assets/model-y/buttons/pearl-white.avif',
@@ -23,38 +23,38 @@
 		/>
 		<!-- interior color selection menu -->
 		<ColorSelectionMenu
-			label="Interior color"
+			title="Interior color"
 			colorImageMap={{
 				dark: '/assets/model-y/buttons/dark.avif',
 				light: '/assets/model-y/buttons/light.avif'
 			}}
 		/>
 		<!-- wheels -->
-		<label class="block space-y-2">
+		<div class="space-y-2">
 			<p class="font-semibold">Wheels</p>
 			<ConfigOption id="standard" description="Standard" optionType="radio" />
 			<ConfigOption id="performance" description="Performance (+$2500)" optionType="radio" />
-		</label>
+		</div>
 		<!-- full self-driving -->
-		<label class="block space-y-2">
+		<div class="space-y-2">
 			<p class="font-semibold">Full Self-Driving</p>
 			<ConfigOption
 				id="full-self-driving"
 				description="Full Self-Driving (+$8500)"
 				optionType="checkbox"
 			/>
-		</label>
+		</div>
 		<!-- performance package -->
-		<label class="block space-y-2">
+		<div class="space-y-2">
 			<p class="font-semibold">Performance Package</p>
 			<ConfigOption
 				id="performance-package"
 				description="Performance Package (+$5000)"
 				optionType="checkbox"
 			/>
-		</label>
+		</div>
 		<!-- accessories -->
-		<label class="block space-y-2">
+		<div class="space-y-2">
 			<p class="font-semibold">Accessories</p>
 			<ConfigOption
 				id="center-console-tray"
@@ -67,7 +67,7 @@
 				description="All Weather Interior Liners (+$225)"
 				optionType="checkbox"
 			/>
-		</label>
+		</div>
 	</section>
 	<div class="h-1 w-full rounded bg-slate-300/75"></div>
 	<!-- total price -->

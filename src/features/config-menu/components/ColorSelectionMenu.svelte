@@ -1,12 +1,13 @@
 <script>
 	/**
-	 * @type {{label: string; colorImageMap: {[key: string]: string}}}
+	 * @type {{title: string; colorImageMap: {[key: string]: string}}}
 	 */
-	var { label, colorImageMap } = $props();
+	var { title, colorImageMap } = $props();
 </script>
 
 {#snippet colorSelectionBtn(/** @type {string} */ color, /** @type {string} */ src)}
-	<div class="relative grid max-w-18 place-content-center">
+	<label class="relative grid max-w-18 place-content-center">
+		<span class="sr-only">{color}</span>
 		<input
 			type="radio"
 			id={color}
@@ -17,14 +18,14 @@
 			class="absolute top-1/2 left-1/2 -z-10 size-[90%] -translate-1/2 outline-offset-6 focus:outline-blue-300"
 		/>
 		<img {src} alt="" class="" />
-	</div>
+	</label>
 {/snippet}
 
-<label class="block space-y-2">
-	<p class="font-semibold">{label}</p>
+<fieldset class="space-y-2">
+	<legend class="font-semibold">{title}</legend>
 	<div class="grid grid-cols-4 gap-3">
 		{#each Object.entries(colorImageMap) as [color, src]}
 			{@render colorSelectionBtn(color, src)}
 		{/each}
 	</div>
-</label>
+</fieldset>
