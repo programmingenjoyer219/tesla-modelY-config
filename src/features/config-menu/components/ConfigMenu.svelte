@@ -1,6 +1,6 @@
 <script>
 	import ColorSelectionMenu from './ColorSelectionMenu.svelte';
-	import ConfigOption from './ConfigOption.svelte';
+	import ConfigOptionMenu from './ConfigOptionMenu.svelte';
 </script>
 
 <section class="space-y-8">
@@ -30,44 +30,56 @@
 			}}
 		/>
 		<!-- wheels -->
-		<div class="space-y-2">
-			<p class="font-semibold">Wheels</p>
-			<ConfigOption id="standard" description="Standard" optionType="radio" />
-			<ConfigOption id="performance" description="Performance (+$2500)" optionType="radio" />
-		</div>
+		<ConfigOptionMenu
+			title="Wheels"
+			configOptions={[
+				{ id: 'standard', description: 'Standard', optionType: 'radio' },
+				{ id: 'performance', description: 'Performance', optionType: 'radio' }
+			]}
+		/>
 		<!-- full self-driving -->
-		<div class="space-y-2">
-			<p class="font-semibold">Full Self-Driving</p>
-			<ConfigOption
-				id="full-self-driving"
-				description="Full Self-Driving (+$8500)"
-				optionType="checkbox"
-			/>
-		</div>
+		<ConfigOptionMenu
+			title="Full Self-Driving"
+			configOptions={[
+				{
+					id: 'full-self-driving',
+					description: 'Full Self-Driving (+$8500)',
+					optionType: 'checkbox'
+				}
+			]}
+		/>
 		<!-- performance package -->
-		<div class="space-y-2">
-			<p class="font-semibold">Performance Package</p>
-			<ConfigOption
-				id="performance-package"
-				description="Performance Package (+$5000)"
-				optionType="checkbox"
-			/>
-		</div>
+		<ConfigOptionMenu
+			title="Performance Package"
+			configOptions={[
+				{
+					id: 'performance-package',
+					description: 'Performance Package (+$5000)',
+					optionType: 'checkbox'
+				}
+			]}
+		/>
 		<!-- accessories -->
-		<div class="space-y-2">
-			<p class="font-semibold">Accessories</p>
-			<ConfigOption
-				id="center-console-tray"
-				description="Center Console Tray (+$35)"
-				optionType="checkbox"
-			/>
-			<ConfigOption id="sunshade" description="Sunshade (+$105)" optionType="checkbox" />
-			<ConfigOption
-				id="all-weather-interior-liners"
-				description="All Weather Interior Liners (+$225)"
-				optionType="checkbox"
-			/>
-		</div>
+		<ConfigOptionMenu
+			title="Accessories"
+			configOptions={[
+				{
+					id: 'center-console-tray',
+					description: 'Center Console Tray (+$35)',
+					optionType: 'checkbox'
+				},
+				{
+					id: 'sunshade',
+					description: 'Sunshade (+$105)',
+					optionType: 'checkbox'
+				},
+				{
+					id: 'all-weather-interior-liners',
+					description: 'All Weather Interior Liners (+$225)',
+					optionType: 'checkbox'
+				}
+			]}
+		/>
 	</section>
 	<div class="h-1 w-full rounded bg-slate-300/75"></div>
 	<!-- total price -->
