@@ -20,8 +20,8 @@
 	</div>
 {/snippet}
 
-<label class="block space-y-4">
-	<h3 class="font-semibold">{label}</h3>
+<label class="block space-y-2">
+	<p class="font-semibold">{label}</p>
 	<div class="grid grid-cols-6 gap-4">
 		{#each Object.entries(colorImageMap) as [color, src]}
 			{@render colorSelectionBtn(color, src)}
