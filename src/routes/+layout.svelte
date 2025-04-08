@@ -5,7 +5,7 @@
 	let { children } = $props();
 </script>
 
-<main class="inline-wrapper">
+<main class="inline-wrapper flow">
 	<Header />
 	{@render children()}
 </main>
