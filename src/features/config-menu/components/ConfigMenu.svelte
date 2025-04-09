@@ -1,4 +1,6 @@
 <script>
+	import PaymentBreakdown from '$features/expenditure/components/PaymentBreakdown.svelte';
+	import TotalPrice from '$features/expenditure/components/TotalPrice.svelte';
 	import { carColor } from '../states/carColor.svelte';
 	import { carConfiguration } from '../states/carConfiguration.svelte';
 	import ColorSelectionMenu from './ColorSelectionMenu.svelte';
@@ -142,35 +144,8 @@
 	</section>
 	<div class="h-1 w-full rounded bg-slate-300/75"></div>
 	<!-- total price -->
-	<section class="space-y-2">
-		<h2 class="text-heading-sm font-light text-slate-900/50">Total Price</h2>
-		<p class="text-heading-base font-bold">$52,490</p>
-	</section>
+	<TotalPrice />
 	<div class="h-1 w-full rounded bg-slate-300/75"></div>
 	<!-- Payment Breakdown -->
-	<section class="space-y-2">
-		<h2 class="text-heading-sm font-light text-slate-900/50">Estimated Payment Breakdown</h2>
-
-		<table class="w-full table-auto">
-			<tbody class="divide-y-1">
-				<tr>
-					<td>Down Payment</td>
-					<td class="font-semibold">$5,249</td>
-				</tr>
-
-				<tr>
-					<td>Loan Term</td>
-					<td class="font-semibold">60 months</td>
-				</tr>
-
-				<tr>
-					<td>Interest Rate</td>
-					<td class="font-semibold">3% APR</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<h3 class="text-md font-medium">Estimated Monthly Payment</h3>
-		<p class="text-heading-sm font-bold">$848.86</p>
-	</section>
+	<PaymentBreakdown />
 </section>
