@@ -1,6 +1,7 @@
 <script>
 	import PaymentBreakdown from '$features/expenditure/components/PaymentBreakdown.svelte';
 	import TotalPrice from '$features/expenditure/components/TotalPrice.svelte';
+	import { expenditure } from '$features/expenditure/states/expenditure.svelte';
 	import { carColor } from '../states/carColor.svelte';
 	import { carConfiguration } from '../states/carConfiguration.svelte';
 	import ColorSelectionMenu from './ColorSelectionMenu.svelte';
@@ -41,9 +42,9 @@
 			<div
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
-				<label class="flex-1" for="standard">Standard</label>
+				<label class="flex-1" for="wheels-standard">Standard</label>
 				<input
-					id="standard"
+					id="wheels-standard"
 					class="size-6 appearance-none rounded-full border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="radio"
 					value="standard"
@@ -54,9 +55,13 @@
 			<div
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
-				<label class="flex-1" for="performance">Performance</label>
+				<label class="flex-1" for="wheels-performance"
+					>Performance {expenditure.getFormattedPrice(
+						expenditure.accessoryRates.wheelsPerformance
+					)}</label
+				>
 				<input
-					id="performance"
+					id="wheels-performance"
 					class="size-6 appearance-none rounded-full border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="radio"
 					value="performance"
@@ -71,7 +76,11 @@
 			<div
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
-				<label class="flex-1" for="full-self-driving">Full Self-Driving (+$8500)</label>
+				<label class="flex-1" for="full-self-driving"
+					>Full Self-Driving {expenditure.getFormattedPrice(
+						expenditure.accessoryRates.fullSelfDriving
+					)}</label
+				>
 				<input
 					id="full-self-driving"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
@@ -87,7 +96,11 @@
 			<div
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
-				<label class="flex-1" for="performance-package">Performance Package (+$5000)</label>
+				<label class="flex-1" for="performance-package"
+					>Performance Package {expenditure.getFormattedPrice(
+						expenditure.accessoryRates.performancePackage
+					)}</label
+				>
 				<input
 					id="performance-package"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
@@ -103,7 +116,11 @@
 			<div
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
-				<label class="flex-1" for="center-console-tray">Center Console Tray (+$35)</label>
+				<label class="flex-1" for="center-console-tray"
+					>Center Console Tray {expenditure.getFormattedPrice(
+						expenditure.accessoryRates.centerConsoleTray
+					)}</label
+				>
 				<input
 					id="center-console-tray"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
@@ -116,7 +133,9 @@
 			<div
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
-				<label class="flex-1" for="sunshade">Sunshade (+$105)</label>
+				<label class="flex-1" for="sunshade"
+					>Sunshade {expenditure.getFormattedPrice(expenditure.accessoryRates.sunshade)}</label
+				>
 				<input
 					id="sunshade"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
@@ -130,7 +149,9 @@
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
 				<label class="flex-1" for="all-weather-interior-liners"
-					>All Weather Interior Liners (+$225)</label
+					>All Weather Interior Liners {expenditure.getFormattedPrice(
+						expenditure.accessoryRates.allWeatherInteriorLiners
+					)}</label
 				>
 				<input
 					id="all-weather-interior-liners"

@@ -1,4 +1,4 @@
-class CarConfiguration {
+export class CarConfiguration {
 	/**@type {'standard' | 'performance'} */
 	wheels = $state('standard');
 	fullSelfDriving = $state(false);
