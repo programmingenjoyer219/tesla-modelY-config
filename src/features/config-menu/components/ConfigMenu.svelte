@@ -1,5 +1,6 @@
 <script>
 	import { carColor } from '../states/carColor.svelte';
+	import { carConfiguration } from '../states/carConfiguration.svelte';
 	import ColorSelectionMenu from './ColorSelectionMenu.svelte';
 </script>
 
@@ -43,6 +44,8 @@
 					id="standard"
 					class="size-6 appearance-none rounded-full border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="radio"
+					value="standard"
+					bind:group={carConfiguration.wheels}
 				/>
 			</div>
 
@@ -54,6 +57,8 @@
 					id="performance"
 					class="size-6 appearance-none rounded-full border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="radio"
+					value="performance"
+					bind:group={carConfiguration.wheels}
 				/>
 			</div>
 		</div>
@@ -69,6 +74,7 @@
 					id="full-self-driving"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="checkbox"
+					bind:checked={carConfiguration.fullSelfDriving}
 				/>
 			</div>
 		</div>
@@ -84,6 +90,7 @@
 					id="performance-package"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="checkbox"
+					bind:checked={carConfiguration.performancePackage}
 				/>
 			</div>
 		</div>
@@ -99,6 +106,8 @@
 					id="center-console-tray"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="checkbox"
+					value="center-console-tray"
+					bind:checked={carConfiguration.centerConsoleTray}
 				/>
 			</div>
 
@@ -110,6 +119,8 @@
 					id="sunshade"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="checkbox"
+					value="sunshade"
+					bind:checked={carConfiguration.sunshade}
 				/>
 			</div>
 
@@ -123,6 +134,8 @@
 					id="all-weather-interior-liners"
 					class="size-6 appearance-none rounded-sm border-2 border-slate-500 outline-offset-4 checked:bg-blue-300 focus:outline-blue-300"
 					type="checkbox"
+					value="all-weather-interior-liners"
+					bind:checked={carConfiguration.allWeatherInteriorLiners}
 				/>
 			</div>
 		</div>
