@@ -1,4 +1,5 @@
 <script>
+	import { carColor } from '../states/carColor.svelte';
 	import ColorSelectionMenu from './ColorSelectionMenu.svelte';
 	import ConfigOptionMenu from './ConfigOptionMenu.svelte';
 </script>
@@ -13,13 +14,14 @@
 		<ColorSelectionMenu
 			title="Exterior color"
 			colorImageMap={{
-				ultraRed: '/assets/model-y/buttons/ultra-red.avif',
-				pearlWhite: '/assets/model-y/buttons/pearl-white.avif',
-				quickSilver: '/assets/model-y/buttons/quicksilver.avif',
-				solidBlack: '/assets/model-y/buttons/solid-black.avif',
-				stealthGrey: '/assets/model-y/buttons/stealth-grey.avif',
-				deepBlue: '/assets/model-y/buttons/deep-blue-metallic.avif'
+				'ultra-red': '/assets/model-y/buttons/ultra-red.avif',
+				'pearl-white': '/assets/model-y/buttons/pearl-white.avif',
+				quicksilver: '/assets/model-y/buttons/quicksilver.avif',
+				'solid-black': '/assets/model-y/buttons/solid-black.avif',
+				'stealth-grey': '/assets/model-y/buttons/stealth-grey.avif',
+				'deep-blue-metallic': '/assets/model-y/buttons/deep-blue-metallic.avif'
 			}}
+			bind:selectedColor={carColor.exterior}
 		/>
 		<!-- interior color selection menu -->
 		<ColorSelectionMenu
@@ -28,6 +30,7 @@
 				dark: '/assets/model-y/buttons/dark.avif',
 				light: '/assets/model-y/buttons/light.avif'
 			}}
+			bind:selectedColor={carColor.interior}
 		/>
 		<!-- wheels -->
 		<ConfigOptionMenu

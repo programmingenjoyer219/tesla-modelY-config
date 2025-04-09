@@ -1,8 +1,8 @@
 <script>
 	/**
-	 * @type {{title: string; colorImageMap: {[key: string]: string}}}
+	 * @type {{title: string; colorImageMap: {[key: string]: string}; selectedColor: string}}
 	 */
-	var { title, colorImageMap } = $props();
+	var { title, colorImageMap, selectedColor = $bindable('') } = $props();
 </script>
 
 {#snippet colorSelectionBtn(/** @type {string} */ color, /** @type {string} */ src)}
@@ -12,10 +12,9 @@
 			type="radio"
 			id={color}
 			name={color}
-			oninput={function () {
-				console.log(color);
-			}}
-			class="absolute top-1/2 left-1/2 -z-10 size-[90%] -translate-1/2 outline-offset-6 focus:outline-blue-300"
+			value={color}
+			class="absolute top-1/2 left-1/2 -z-10 size-[90%] -translate-1/2 outline-offset-6 focus:outline-2 focus:outline-blue-300"
+			bind:group={selectedColor}
 		/>
 		<img {src} alt="" class="" />
 	</label>
