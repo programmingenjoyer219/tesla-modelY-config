@@ -35,51 +35,50 @@
 		<!-- wheels -->
 		<ConfigOptionMenu
 			title="Wheels"
+			optionType="radio"
 			configOptions={[
-				{ id: 'standard', description: 'Standard', optionType: 'radio' },
-				{ id: 'performance', description: 'Performance', optionType: 'radio' }
+				{ id: 'standard', description: 'Standard' },
+				{ id: 'performance', description: 'Performance' }
 			]}
 		/>
 		<!-- full self-driving -->
 		<ConfigOptionMenu
 			title="Full Self-Driving"
+			optionType="checkbox"
 			configOptions={[
 				{
 					id: 'full-self-driving',
-					description: 'Full Self-Driving (+$8500)',
-					optionType: 'checkbox'
+					description: 'Full Self-Driving (+$8500)'
 				}
 			]}
 		/>
 		<!-- performance package -->
 		<ConfigOptionMenu
 			title="Performance Package"
+			optionType="checkbox"
 			configOptions={[
 				{
 					id: 'performance-package',
-					description: 'Performance Package (+$5000)',
-					optionType: 'checkbox'
+					description: 'Performance Package (+$5000)'
 				}
 			]}
 		/>
 		<!-- accessories -->
 		<ConfigOptionMenu
 			title="Accessories"
+			optionType="checkbox"
 			configOptions={[
 				{
 					id: 'center-console-tray',
-					description: 'Center Console Tray (+$35)',
-					optionType: 'checkbox'
+					description: 'Center Console Tray (+$35)'
 				},
 				{
 					id: 'sunshade',
-					description: 'Sunshade (+$105)',
-					optionType: 'checkbox'
+					description: 'Sunshade (+$105)'
 				},
 				{
 					id: 'all-weather-interior-liners',
-					description: 'All Weather Interior Liners (+$225)',
-					optionType: 'checkbox'
+					description: 'All Weather Interior Liners (+$225)'
 				}
 			]}
 		/>
