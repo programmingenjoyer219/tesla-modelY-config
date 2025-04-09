@@ -8,4 +8,9 @@
  * @typedef {'dark' | 'light'} InteriorColor
  */
 
+/**
+ * @module index
+ * @exports ExteriorColor
+ * @exports InteriorColor
+ */
 export {};

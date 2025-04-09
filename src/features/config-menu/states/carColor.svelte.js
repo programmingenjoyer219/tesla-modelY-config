@@ -1,10 +1,13 @@
+/** @typedef {import('../types/index.js').ExteriorColor} ExteriorColor */
+/** @typedef {import('../types/index.js').InteriorColor} InteriorColor */
+
 class CarColor {
 	/**
-	 * @property {import('../types/index.js').ExteriorColor} exterior
+	 * @type {ExteriorColor}
 	 */
 	exterior = $state('ultra-red');
 	/**
-	 * @property {import('../types/index.js').InteriorColor} interior
+	 * @type {InteriorColor}
 	 */
 	interior = $state('dark');
 }
