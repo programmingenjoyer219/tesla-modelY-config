@@ -1,4 +1,4 @@
-/** @typedef {import('../../config-menu/states/carConfiguration.svelte').CarConfiguration} CarConfiguration */
+/** @typedef {import('$features/config-menu/states/carConfiguration.svelte').CarConfiguration} CarConfiguration */
 import { carConfiguration } from '$features/config-menu/states/carConfiguration.svelte';
 
 /**
@@ -12,11 +12,11 @@ import { carConfiguration } from '$features/config-menu/states/carConfiguration.
  */
 
 class Expenditure {
-	/**@type {number} */
+	/**@type {number}*/
 	totalPrice = $derived.by(this.calculateTotalPrice.bind(this));
-	/**@type {number} */
+	/**@type {number}*/
 	downPayment = $derived.by(this.calculateDownPayment.bind(this));
-	/**@type {number} */
+	/**@type {number}*/
 	monthlyPayment = $derived.by(this.calculateMonthlyPayment.bind(this));
 
 	/**
@@ -88,7 +88,9 @@ class Expenditure {
 	}
 	/**
 	 * @param {number} amount
-	 * @returns {string} eg : (+$2,500)
+	 * @returns {string}
+	 * @example
+	 * console.log(getFormattedPrice(2500)) // (+$2,500)
 	 */
 	getFormattedPrice(amount) {
 		return `(+${this.currencySymbol}${amount.toLocaleString()})`;
