@@ -2,9 +2,19 @@
 	import PaymentBreakdown from '$features/expenditure/components/PaymentBreakdown.svelte';
 	import TotalPrice from '$features/expenditure/components/TotalPrice.svelte';
 	import { expenditure } from '$features/expenditure/states/expenditure.svelte';
+	import { formatMonetaryAmount } from '$features/expenditure/utils';
 	import { carColor } from '../states/carColor.svelte';
 	import { carConfiguration } from '../states/carConfiguration.svelte';
 	import ColorSelectionMenu from './ColorSelectionMenu.svelte';
+
+	/**
+	 * @param {number} price
+	 * @example
+	 * getFormattedPrice(2500) // (+$2,500)
+	 */
+	function getFormattedPrice(price) {
+		return `(+${formatMonetaryAmount(expenditure.currencySymbol)(0)(price)})`;
+	}
 </script>
 
 <section class="space-y-8">
@@ -56,9 +66,7 @@
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
 				<label class="flex-1" for="wheels-performance"
-					>Performance {expenditure.getFormattedPrice(
-						expenditure.accessoryRates.wheelsPerformance
-					)}</label
+					>Performance {getFormattedPrice(expenditure.accessoryRates.wheelsPerformance)}</label
 				>
 				<input
 					id="wheels-performance"
@@ -77,9 +85,7 @@
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
 				<label class="flex-1" for="full-self-driving"
-					>Full Self-Driving {expenditure.getFormattedPrice(
-						expenditure.accessoryRates.fullSelfDriving
-					)}</label
+					>Full Self-Driving {getFormattedPrice(expenditure.accessoryRates.fullSelfDriving)}</label
 				>
 				<input
 					id="full-self-driving"
@@ -97,7 +103,7 @@
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
 				<label class="flex-1" for="performance-package"
-					>Performance Package {expenditure.getFormattedPrice(
+					>Performance Package {getFormattedPrice(
 						expenditure.accessoryRates.performancePackage
 					)}</label
 				>
@@ -117,7 +123,7 @@
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
 				<label class="flex-1" for="center-console-tray"
-					>Center Console Tray {expenditure.getFormattedPrice(
+					>Center Console Tray {getFormattedPrice(
 						expenditure.accessoryRates.centerConsoleTray
 					)}</label
 				>
@@ -134,7 +140,7 @@
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
 				<label class="flex-1" for="sunshade"
-					>Sunshade {expenditure.getFormattedPrice(expenditure.accessoryRates.sunshade)}</label
+					>Sunshade {getFormattedPrice(expenditure.accessoryRates.sunshade)}</label
 				>
 				<input
 					id="sunshade"
@@ -149,7 +155,7 @@
 				class="flex flex-row-reverse items-center justify-end gap-4 rounded-md border-2 border-slate-400/75 p-3 shadow-md"
 			>
 				<label class="flex-1" for="all-weather-interior-liners"
-					>All Weather Interior Liners {expenditure.getFormattedPrice(
+					>All Weather Interior Liners {getFormattedPrice(
 						expenditure.accessoryRates.allWeatherInteriorLiners
 					)}</label
 				>

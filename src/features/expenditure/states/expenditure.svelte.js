@@ -13,11 +13,22 @@ import { carConfiguration } from '$features/config-menu/states/carConfiguration.
 
 class Expenditure {
 	/**@type {number}*/
-	totalPrice = $derived.by(this.calculateTotalPrice.bind(this));
+	totalPrice = $derived.by(() => {
+		return calculateTotalPrice(this.basePrice, this.carConfiguration, this.accessoryRates);
+	});
 	/**@type {number}*/
-	downPayment = $derived.by(this.calculateDownPayment.bind(this));
+	downPayment = $derived.by(() => {
+		return calculateDownPayment(10)(this.totalPrice);
+	});
 	/**@type {number}*/
-	monthlyPayment = $derived.by(this.calculateMonthlyPayment.bind(this));
+	monthlyPayment = $derived.by(() => {
+		return calculateMonthlyPayment(
+			this.totalPrice,
+			this.downPayment,
+			this.interestRate,
+			this.loanTerm
+		);
+	});
 
 	/**
 	 * @param {string} currencySymbol
@@ -34,66 +45,6 @@ class Expenditure {
 		this.loanTerm = loanTerm;
 		this.interestRate = interestRate;
 		this.carConfiguration = carConfiguration;
-	}
-
-	/**
-	 * @returns {number} total price of the car
-	 */
-	calculateTotalPrice() {
-		var result = this.basePrice;
-
-		if (this.carConfiguration.wheels == 'performance') {
-			result += this.accessoryRates.wheelsPerformance;
-		}
-
-		if (this.carConfiguration.fullSelfDriving) {
-			result += this.accessoryRates.fullSelfDriving;
-		}
-
-		if (this.carConfiguration.performancePackage) {
-			result += this.accessoryRates.performancePackage;
-		}
-
-		if (this.carConfiguration.centerConsoleTray) {
-			result += this.accessoryRates.centerConsoleTray;
-		}
-
-		if (this.carConfiguration.sunshade) {
-			result += this.accessoryRates.sunshade;
-		}
-
-		if (this.carConfiguration.allWeatherInteriorLiners) {
-			result += this.accessoryRates.allWeatherInteriorLiners;
-		}
-
-		return result;
-	}
-	/**
-	 * @returns {number} car's monthly payment
-	 */
-	calculateMonthlyPayment() {
-		var loanAmount = this.totalPrice - this.downPayment;
-		var monthlyInterestRate = this.interestRate / 12;
-
-		return (
-			(loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, this.loanTerm))) /
-			(Math.pow(1 + monthlyInterestRate, this.loanTerm) - 1)
-		);
-	}
-	/**
-	 * @returns {number} car's down payment
-	 */
-	calculateDownPayment() {
-		return this.totalPrice * 0.1;
-	}
-	/**
-	 * @param {number} amount
-	 * @returns {string}
-	 * @example
-	 * console.log(getFormattedPrice(2500)) // (+$2,500)
-	 */
-	getFormattedPrice(amount) {
-		return `(+${this.currencySymbol}${amount.toLocaleString()})`;
 	}
 }
 
@@ -112,3 +63,70 @@ export var expenditure = new Expenditure(
 	0.03,
 	carConfiguration
 );
+
+/**
+ * @param {number} percent a number between 0 and 100 (inclusive)
+ * @example
+ * calculateDownPayment(10)(52_490) // 5249
+ */
+function calculateDownPayment(percent) {
+	/**
+	 * @param {number} totalPrice total price of the car
+	 */
+	return function takeTotalPrice(totalPrice) {
+		return (totalPrice * percent) / 100;
+	};
+}
+
+/**
+ *
+ * @param {number} totalPrice
+ * @param {number} downPayment
+ * @param {number} interestRate
+ * @param {number} loanTerm
+ */
+function calculateMonthlyPayment(totalPrice, downPayment, interestRate, loanTerm) {
+	var loanAmount = totalPrice - downPayment;
+	var monthlyInterestRate = interestRate / 12;
+
+	return (
+		(loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm))) /
+		(Math.pow(1 + monthlyInterestRate, loanTerm) - 1)
+	);
+}
+
+/**
+ *
+ * @param {number} basePrice
+ * @param {CarConfiguration} carConfiguration
+ * @param {AccessoryRates} accessoryRates
+ */
+function calculateTotalPrice(basePrice, carConfiguration, accessoryRates) {
+	var result = basePrice;
+
+	if (carConfiguration.wheels == 'performance') {
+		result += accessoryRates.wheelsPerformance;
+	}
+
+	if (carConfiguration.fullSelfDriving) {
+		result += accessoryRates.fullSelfDriving;
+	}
+
+	if (carConfiguration.performancePackage) {
+		result += accessoryRates.performancePackage;
+	}
+
+	if (carConfiguration.centerConsoleTray) {
+		result += accessoryRates.centerConsoleTray;
+	}
+
+	if (carConfiguration.sunshade) {
+		result += accessoryRates.sunshade;
+	}
+
+	if (carConfiguration.allWeatherInteriorLiners) {
+		result += accessoryRates.allWeatherInteriorLiners;
+	}
+
+	return result;
+}
