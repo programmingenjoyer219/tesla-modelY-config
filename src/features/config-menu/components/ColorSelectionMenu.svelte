@@ -16,7 +16,7 @@
 			class="absolute top-1/2 left-1/2 -z-10 size-[90%] -translate-1/2 outline-offset-6 focus:outline-2 focus:outline-blue-300"
 			bind:group={selectedColor}
 		/>
-		<img {src} alt="" class="" />
+		<img {src} alt="" height="120" width="120" />
 	</label>
 {/snippet}
 
