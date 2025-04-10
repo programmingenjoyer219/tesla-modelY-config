@@ -22,7 +22,7 @@
 
 <fieldset class="space-y-2">
 	<legend class="font-semibold">{title}</legend>
-	<div class="grid grid-cols-4 gap-3">
+	<div class="grid grid-cols-[repeat(auto-fit,_minmax(4rem,_4.01rem))] gap-3">
 		{#each Object.entries(colorImageMap) as [color, src]}
 			{@render colorSelectionBtn(color, src)}
 		{/each}
