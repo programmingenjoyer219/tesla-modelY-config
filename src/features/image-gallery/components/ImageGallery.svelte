@@ -4,7 +4,7 @@
 </script>
 
 <section class="flow">
-	<div class="md:sticky md:top-4">
+	<div class="md:sticky md:top-0 md:grid md:grid-rows-2 lg:grid-rows-[0.6fr_1fr]">
 		<CarImage />
 		<InteriorImage />
 	</div>
