@@ -1,0 +1,62 @@
+
+{
+    "id": "/",
+    "start_url": "/",
+    "scope": "/",
+    "name": "Tesla Model-Y Config Interface",
+    "short_name": "Model-Y",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#fff",
+    "description": "A simple configuration interface for Tesla Model-Y",
+    "icons": [
+        {
+          "src": "/icons/tesla-maskable-192.png",
+          "type": "image/png",
+          "sizes": "192x192",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/tesla-maskable-512.png",
+          "type": "image/png",
+          "sizes": "512x512",
+          "purpose": "maskable"
+        },
+        {
+          "src": "/icons/tesla-512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        },
+        {
+          "src": "/icons/tesla-1024.png",
+          "type": "image/png",
+          "sizes": "1024x1024"
+        }
+      ],
+      "screenshots": [
+        {
+         "src": "/screenshots/desktop-1.png",
+          "sizes": "1791x1119",
+          "type": "image/png",
+          "form_factor": "wide"
+        },
+        {
+            "src": "/screenshots/desktop-2.png",
+             "sizes": "1791x1119",
+             "type": "image/png",
+             "form_factor": "wide"
+        },
+        {
+            "src": "/screenshots/mobile-1.png",
+             "sizes": "600x1200",
+             "type": "image/png",
+             "form_factor": "narrow"
+        },
+        {
+            "src": "/screenshots/mobile-2.png",
+             "sizes": "600x1200",
+             "type": "image/png",
+             "form_factor": "narrow"
+        }
+    ]
+}

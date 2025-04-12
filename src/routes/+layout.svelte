@@ -10,6 +10,7 @@
 	<meta name="description" content="Tesla Model Y configuration interface built using SvelteKit" />
 	<link rel="preload" as="image" href="/assets/model-y/exterior/ultra-red.avif" />
 	<link rel="preload" as="image" href="/assets/model-y/interior/dark.avif" />
+	<link rel="manifest" href="/app.webmanifest" />
 </svelte:head>
 
 <main class="inline-wrapper flow">
